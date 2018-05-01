@@ -1,7 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>404 Not Found</title>
+	<link rel="icon" href="https://rtrn.io/favicon.ico"/>
+
+	<script>
+		function panic() {
+			var a = Math.floor(Math.random()*15) + 5;
+			var b = (Math.floor(Math.random()*0x30)+0x10).toString(16);
+			var c = (Math.floor(Math.random()*0xDDDD)+0x1111).toString(16);
+			document.open();
+			document.write("<pre><samp>panic: runtime error: invalid memory address or nil pointer dereference\n" +
+				"[signal SIGSEGV: segmentation violation code=0xffffffff addr=0x0 pc=0xd" + c + "]\n\n" +
+				"goroutine 1 [running]:\n" +
+				"main.main()\n" +
+				"	/" + window.location.hostname + window.location.pathname + ":" + a + " +0x" + b + "\n" +
+				"</samp></pre>");
+			document.close();
+		}
+	</script>
+</head>
+
+<body onload="panic();">
+
 <pre><samp>panic: runtime error: invalid memory address or nil pointer dereference
 [signal SIGSEGV: segmentation violation code=0xffffffff addr=0x0 pc=0xd37da]
 
 goroutine 1 [running]:
 main.main()
-	/tmp/sandbox511269374/main.go:9 +0x1a
+	/rtrn.io/main.go:9 +0x1a
 </samp></pre>
+
+</body>
+</html>
