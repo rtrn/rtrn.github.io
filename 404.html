@@ -3,12 +3,12 @@
 
 <head>
 	<title>404 Not Found</title>
-	<link rel="icon" href="https://rtrn.io/favicon.ico"/>
+	<link rel="icon" href="/favicon.ico"/>
 
 	<script>
 		function panic() {
-			var a = Math.floor(Math.random()*15) + 5;
-			var b = (Math.floor(Math.random()*0x30)+0x10).toString(16);
+			var a = Math.floor(Math.random()*300) + 5;
+			var b = (Math.floor(Math.random()*0x80)+0x10).toString(16);
 			var c = (Math.floor(Math.random()*0xDDDD)+0x1111).toString(16);
 			document.open();
 			document.write("<pre><samp>panic: runtime error: invalid memory address or nil pointer dereference\n" +
