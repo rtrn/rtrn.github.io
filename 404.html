@@ -6,24 +6,24 @@
 	<link rel="icon" href="/favicon.ico"/>
 
 	<script>
-		function panic() {
-			var a = Math.floor(Math.random()*300) + 5;
-			var b = (Math.floor(Math.random()*0x80)+0x10).toString(16);
-			var c = (Math.floor(Math.random()*0xDDDD)+0x1111).toString(16);
-			document.open();
-			document.write("<pre><samp>panic: runtime error: invalid memory address or nil pointer dereference\n" +
-				"[signal SIGSEGV: segmentation violation code=0xffffffff addr=0x0 pc=0xd" + c + "]\n\n" +
-				"goroutine 1 [running]:\n" +
-				"main.main()\n" +
-				"	/" + window.location.hostname + window.location.pathname + ":" + a + " +0x" + b + "\n" +
-				"</samp></pre>");
-			document.close();
-		}
+	function setpanic() {
+		var a = Math.floor(Math.random()*300) + 5;
+		var b = (Math.floor(Math.random()*0x80)+0x10).toString(16);
+		var c = (Math.floor(Math.random()*0xDDDD)+0x1111).toString(16);
+		var s = "<pre><samp>panic: runtime error: invalid memory address or nil pointer dereference\n" +
+			"[signal SIGSEGV: segmentation violation code=0xffffffff addr=0x0 pc=0xd" + c + "]\n\n" +
+			"goroutine 1 [running]:\n" +
+			"main.main()\n" +
+			"	/" + window.location.hostname + window.location.pathname + ":" + a + " +0x" + b + "\n" +
+			"</samp></pre>\n";
+		document.getElementById("panic").innerHTML = s;
+	}
 	</script>
 </head>
 
-<body onload="panic();">
+<body onload="setpanic();">
 
+<span id="panic">
 <pre><samp>panic: runtime error: invalid memory address or nil pointer dereference
 [signal SIGSEGV: segmentation violation code=0xffffffff addr=0x0 pc=0xd37da]
 
@@ -31,6 +31,7 @@ goroutine 1 [running]:
 main.main()
 	/rtrn.io/main.go:9 +0x1a
 </samp></pre>
+</span>
 
 </body>
 </html>
