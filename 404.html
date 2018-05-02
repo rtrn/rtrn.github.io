@@ -14,7 +14,7 @@
 			"[signal SIGSEGV: segmentation violation code=0xffffffff addr=0x0 pc=0xd" + c + "]\n\n" +
 			"goroutine 1 [running]:\n" +
 			"main.main()\n" +
-			"	/" + window.location.hostname + window.location.pathname + ":" + a + " +0x" + b + "\n" +
+			'	/<a href="/">' + window.location.hostname + "</a>" + window.location.pathname + ":" + a + " +0x" + b + "\n" +
 			"</samp></pre>\n";
 		document.getElementById("panic").innerHTML = s;
 	}
@@ -29,7 +29,7 @@
 
 goroutine 1 [running]:
 main.main()
-	/rtrn.io/main.go:9 +0x1a
+	/<a href="/">rtrn.io</a>/main.go:9 +0x1a
 </samp></pre>
 </span>
 
