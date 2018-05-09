@@ -1,6 +1,11 @@
 MKSHELL = $PLAN9/bin/rc
 
-all:V:
+all:V:		hugo vanity
+
+hugo:V:
+	@{	cd hugo
+		mk $MKFLAGS
+	}
 
 vanity:V:
 	govanity -v
